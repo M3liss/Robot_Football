@@ -35,6 +35,10 @@ Make sure to find the classes.txt file and copy the classes from it. Then, go to
 
 Wow, you have officially added your own images! Now, you can have some fun with it! Open the jupyter notebook yolov7_det.ipynb and go through the steps speficied. If you need help, go to the official yolov7 repository on GitHub to find information. Have fun with this and make sure you use the free GPU in Google Colab as much as you can to improve your detection algorithm.
 
+![try (1)](https://user-images.githubusercontent.com/115803011/220776390-ade5ad59-5315-408f-9f4f-e163efbefa74.jpg)
+
+This is what the detection should look like. Use the same file where you train your module to test your own images!
+
 # 4. Connection to the robot
 
 Awesome, you are almost done! The next step is to actually connect to the robot and run your new algorithm!
