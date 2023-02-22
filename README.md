@@ -1,8 +1,14 @@
 # Robot Football
 
-This is a walk-through for the Bachelor Thesis Robot Football (2022/23) in Trinity College Dublin by Melissa Mazura. 
+Hello all! This is a walk-through for the Bachelor Thesis Robot Football (2022/23) at Trinity College Dublin by Melissa Mazura. 
 
-If you do not want to add your own dataset, please jump ahead after 1. Requiremnets to step 4. Connection to the Robot. There is no rush to start with your own detection before making sure you understand the rest of it!
+This project can detect a hand (palm up, hand out) and three different coloured balls. After detecting these images, it can, when the ball is thrown, follow its path and "catch" the ball. 
+
+Do you want to test it?
+
+You can add your own images into the mix! If you dont want that, simply ignore steps 2 - 4 and focus on the rest. Make sure you follow each step that is described here and if you need help, please commit an issue to this repository or ask Conor Sheedy for help. 
+
+Have fun!
 
 # 1. Requirements
 
