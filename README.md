@@ -41,7 +41,7 @@ Make sure to find the classes.txt file and copy the classes from it. Then, go to
 
 # 3. Object Detection
 
-Wow, you have officially added your own images! Now, you can have some fun with it! Open the jupyter notebook yolov7_det.ipynb and go through the steps speficied. If you need help, go to the official yolov7 repository on GitHub to find information. Have fun with this and make sure you use the free GPU in Google Colab as much as you can to improve your detection algorithm.
+Wow, you have officially added your own images! Now, you can have some fun with it! Open the jupyter notebook run_train.ipynb and go through the steps speficied. If you need help, go to the official yolov7 repository on GitHub to find information. Have fun with this and make sure you use the free GPU in Google Colab as much as you can to improve your detection algorithm.
 
 <img src="https://user-images.githubusercontent.com/115803011/220776390-ade5ad59-5315-408f-9f4f-e163efbefa74.jpg" width="50%">
 
