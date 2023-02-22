@@ -25,7 +25,9 @@ Make sure to download the requirements.txt file and run !pip install -r /Robot_F
 
 You can add your own object detection module to the mix. Just think of an object you want to use, download take_photo.py to your local machine and make sure to follow the instructions at all the right places. Then run the code. This way you will take NUMBER pictures with openCV in a row, so have all the objects ready! Make sure that the object is well photographed and afterwards go through the pictures to make sure it actually works.
 
-After this, download labelImg from github (https://github.com/heartexlabs/labelImg). You can start it by typing python labelImg.py or if on windows the_path_to_file python labelImg.py. Change the open and save directory to the one with the images and then change the save format to Yolo. THis saves the annotation in a .txt file that will be used later.
+![annotated_labelImg](https://user-images.githubusercontent.com/115803011/220775344-13053b29-fc2f-4c17-b20c-f01b229a0c69.png)
+After this, download labelImg from github (https://github.com/heartexlabs/labelImg). You can start it by typing python labelImg.py or if on windows the_path_to_file python labelImg.py. Change the (1) open and (2) save directory to the one with the images and then change the (3) save format to Yolo. Then create boxes (they are called bounding boxes) with the (4) CreateRec to circle the objects. Hit ctlr + w to faciliate the creation of bounding boxes. When every image is annotated, close labelImg and you are done! 
+
 
 Make sure to find the classes.txt file and copy the classes from it. Then, go to the images folder in your google drive, upload your own images and add your class to the classes.txt file that already exists.
 
