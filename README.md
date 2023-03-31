@@ -53,6 +53,7 @@ Awesome, you are almost done! The next step is to actually connect to the robot 
 For this to work, turn on your robot and then connect to the Wifi on yor computer. After you did that, go to the web address http://192.168.4.1 and look at the camera stream. You can play around with it and play around with your robot.
 If you are done, open your terminal and go to your repository of this project.
 Run this line:
+
 python run_det.py --weights PATH_TO_WEIGHT --conf 0.7 --img-size 640 --source "http://192.168.4.1/capture"
 
 The weights are set to the ones specified by me. You can change them to your own custom algorithm. If you have done this, run the algorithm and enjoy the results! 
