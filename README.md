@@ -84,7 +84,7 @@ All instructions for this part are in the run_train jupyter notebook. So, relax 
 
 For this, you need to modify three different files. Start with the ApplicationFunctionSet_xxx0.cpp to include your own ideas. Remember, the motor can be controlled with the following function: 
 
-AppMotor.DeviceDriverSet_Motor_Control(directionA, speedA, directionB, speedB, 1)
+      AppMotor.DeviceDriverSet_Motor_control(directionA, speedA, directionB, speedB, 1);
 
 Add a new string to the SerialPortDataAnalysis function and then add a new if instruction with your new custom string. Copy the next two lines into it, and then your own Motor Control. 
 
@@ -96,7 +96,7 @@ Add a new string to the SerialPortDataAnalysis function and then add a new if in
 
 Now, open the send_commands.py. Add your function with the simple line:
 
-self.car.write("".encode())
+        self.car.write("".encode())
 
 and specify the String.
 
