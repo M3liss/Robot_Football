@@ -78,7 +78,33 @@ Open up the data_augmentation notebook and open it. YOu have to upload your imag
 
 All instructions for this part are in the run_train jupyter notebook. So, relax and work through it!
 
-## 3. Run it
+## 3. Add your own commands
+
+### Motor control 
+
+For this, you need to modify three different files. Start with the ApplicationFunctionSet_xxx0.cpp to include your own ideas. Remember, the motor can be controlled with the following function: 
+
+AppMotor.DeviceDriverSet_Motor_Control(directionA, speedA, directionB, speedB, 1)
+
+Add a new string to the SerialPortDataAnalysis function and then add a new if instruction with your new custom string. Copy the next two lines into it, and then your own Motor Control. 
+
+      Application_SmartRobotCarxxx0.userControlTime = millis();      
+      Application_SmartRobotCarxxx0.Functional_Mode = UserControl;
+
+
+### Send commands
+
+Now, open the send_commands.py. Add your function with the simple line:
+
+self.car.write("".encode())
+
+and specify the String.
+
+### det_run.py
+
+Now, simply add your function in the code here. Use the varaible pred_number. Pred_number outputs a list of objects. The more obejcts it detects, the more rows it has. The first colum will return the class, and afterwards the position of the bounding box. Use this for what you want to do!
+
+## 4. Run it
 
 Wow, you have officially created your custom detection module! Now, you can have some fun with it! 
 
