@@ -2,11 +2,11 @@
 
 Hello all! This is a walk-through for the Bachelor Thesis Robot Football (2022/23) at Trinity College Dublin by Melissa Mazura. 
 
-This project can detect a hand (palm up, hand out) and three different coloured balls. After detecting these images, it can, when the ball is thrown, follow its path and "catch" the ball. 
+This project can detect a hand (palm up, hand out) and three different coloured balls. After detecting these obejcts, there are two different commands the robot can perform. If one hand is found in the image, it will turn 360°. When there is one ball, the robot will follow its path and "catch" the ball. 
 
 Do you want to test it?
 
-You can add your own images into the mix! If you dont want that, simply ignore steps 2 - 4 and focus on the rest. Make sure you follow each step that is described here and if you need help, please commit an issue to this repository or ask Conor Sheedy for help. 
+You can also add your own images into the mix! If you are up to that, simply keep reading till the end. Make sure you follow each step that is described here and if you need help, please don't hesitate to ask for help from me or Conor Sheedy. 
 
 Have fun!
 
@@ -16,7 +16,7 @@ Have fun!
 
 The robot can be found in this link: https://www.elegoo.com/products/elegoo-smart-robot-car-kit-v-4-0. 
 
-The robot's assembly can be accomplished by using th eTutorial provided by Elegoo. It has a camera module, a remote control and an infra red sensor. The averate time of putting it together is 2 hours. Make sure to accomplish every step after the other. In the end, the robot should look like this:
+The robot's assembly can be accomplished by using the eTutorial provided by Elegoo. The robot has a camera module, a remote control and an infra red sensor. The averate time of putting it together is 2 hours. Make sure to accomplish every step after the other and to tighten the screws as good as possible. In the end, the robot should look like this:
 
 <img src="https://user-images.githubusercontent.com/115803011/220768214-73aa3c63-2037-41fb-baa9-8641828a3d82.jpg" width="50%">
 
@@ -24,11 +24,39 @@ The robot's assembly can be accomplished by using th eTutorial provided by Elego
 
 The other requirement are three balls from Amazon. The Object Detection algorithm is designed to detect those three balls. There is no guarantee that the algorithm works on any other balls. 
 
-## The requirements
+## Other requirements
 
-Make sure to download the requirements.txt file and run !pip install -r /Robot_Football/requirements.txt
+You have to have Python 3.10 or lower. If you have a newer version, please downgrade. The detection will not work with a higher version.
 
-# 2. The Dataset
+Go to https://github.com/WongKinYiu/yolov7 and download the repository. Then, download the files from here and go move everything into the yolov7 repository. 
+
+When you have done this, open the terminal and move into the yolov7 repository. Run pip install -r /Robot_Football/requirements.txt. Also run pip install pyserial and pip install opencv-python. 
+
+While you are downloading everything necessary, open up the utils/google_utils.py. Change line 31 to tag = “v1.0”.
+
+When you have done that, go into the https://www.elegoo.com/blogs/arduino-projects/elegoo-smart-robot-car-kit-v4-0-tutorial and download the first link. There, you have go to  02 Manual & Main Code & APP\02 Main Program\TB6612 & QMI8658C\SmartRobotCar and switch out the ApplicationFunctionSet_xxx0.cpp with the one given in the GitHub repository.
+
+Make sure that all these requirements are fullfilled.
+
+# 2. The robot
+
+After you have assembled the robot, the next step is updating the code of said robot. For this, open the modified 02 Manual & Main Code & APP\02 Main Program\TB6612 & QMI8658C\SmartRobotCar folder in the Arduino IDE and coonect your robot with the USB cable. Connect it with the board Arduino UNO and the Port COM6. Then, please upload the new code to the robot.
+
+# 3. Object Detection
+
+Please ask Conor for the weight files. 
+
+You are almost ready for the object detection. Please connect your computer to the Wifi of the robot. To see whether the connection works, go to http://192.168.4.1. When this works, make sure that the USB is still connected to the robot, set it on the ground and close the Arduino IDE. When this is done, run the following line from your yolov7 repository (with my code in it as well!):
+
+python det_run.py --weights SPECIFY WEIGHT HERE.pt --conf 0.5 --img-size 640 --source "http://192.168.4.1/capture"
+
+<img src="https://user-images.githubusercontent.com/115803011/220776390-ade5ad59-5315-408f-9f4f-e163efbefa74.jpg" width="50%">
+
+This is what the detection should look like.
+
+HOW TO CREATE YOUR OWN MODEL:
+
+# 1. The Dataset
 
 You can add your own object detection module to the mix. Just think of an object you want to use, download take_photo.py to your local machine and make sure to follow the instructions at all the right places. Then run the code. This way you will take NUMBER pictures with openCV in a row, so have all the objects ready! Make sure that the object is well photographed and afterwards go through the pictures to make sure it actually works.
 
@@ -39,21 +67,5 @@ After this, download labelImg from github (https://github.com/heartexlabs/labelI
 
 Make sure to find the classes.txt file and copy the classes from it. Then, go to the images folder in your google drive, upload your own images and add your class to the classes.txt file that already exists.
 
-# 3. Object Detection
 
 Wow, you have officially added your own images! Now, you can have some fun with it! Open the jupyter notebook run_train.ipynb and go through the steps speficied. If you need help, go to the official yolov7 repository on GitHub to find information. Have fun with this and make sure you use the free GPU in Google Colab as much as you can to improve your detection algorithm.
-
-<img src="https://user-images.githubusercontent.com/115803011/220776390-ade5ad59-5315-408f-9f4f-e163efbefa74.jpg" width="50%">
-
-This is what the detection should look like. Use the same file where you train your module to test your own images!
-
-# 4. Connection to the robot
-
-Awesome, you are almost done! The next step is to actually connect to the robot and run your new algorithm!
-For this to work, turn on your robot and then connect to the Wifi on yor computer. After you did that, go to the web address http://192.168.4.1 and look at the camera stream. You can play around with it and play around with your robot.
-If you are done, open your terminal and go to your repository of this project.
-Run this line:
-
-python run_det.py --weights PATH_TO_WEIGHT --conf 0.7 --img-size 640 --source "http://192.168.4.1/capture"
-
-The weights are set to the ones specified by me. You can change them to your own custom algorithm. If you have done this, run the algorithm and enjoy the results! 
